@@ -14,5 +14,3 @@ class SecretsController < ApplicationController
      return head(:forbidden) unless session.include? :name
    end
 end
-
-
