@@ -2,8 +2,13 @@ class SecretsController < ApplicationController
   before_action :require_login
 
   def show
-    @document = Document.find(params[:id])
-    redirect_to '/sessions'
+    if @document = Document.find(params[:id])
+
+    else 
+      redirect_to '/sessions'
+    end
+  
+    
   end
 
   # def index
