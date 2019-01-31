@@ -1,16 +1,23 @@
-class SecretsController < ApplicationController
-  before_action :require_login
-  #  skip_before_action :require_login, only: [:show]
+class SessionsController < ApplicationController
 
-   def show
-     if current_user
-       render :show
-     else
-       redirect_to '/new'
-     end
-   end
+  def new
+  end
 
-   def require_login
-     return head(:forbidden) unless session.include? :name
-   end
+  def home
+  end
+
+  def create
+    if params[:name].nil? || params[:name].empty?
+      redirect_to '/new'
+    else
+      session[:name] = params[:name]
+      redirect_to '/home'
+    end
+  end
+
+  def destroy
+    session[:name] = nil
+    redirect_to '/new'
+  end
+
 end
