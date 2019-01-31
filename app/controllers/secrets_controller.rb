@@ -3,6 +3,7 @@ class SecretsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
+    redirect_to '/sessions'
   end
 
   # def index
