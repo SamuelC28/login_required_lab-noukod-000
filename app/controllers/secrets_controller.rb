@@ -4,11 +4,11 @@ class SecretsController < ApplicationController
   def show
     if @document = Document.find(params[:id])
 
-    else 
+    else
       redirect_to '/sessions'
     end
-  
-    
+
+
   end
 
   # def index
